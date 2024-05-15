@@ -1,3 +1,21 @@
-# Your code goes here.
-# You can delete these comments, but do not change the name of this file
-# Write your code to expect a terminal of 80 characters wide and 24 rows high
+import string
+from random import choice
+
+MAX_INCORRECT_GUESSES = 6
+
+def select_word():
+    """
+    Get words to use in the wordlist 
+    """
+    with open("words.txt", mode="r") as words:
+        word_list = words.readlines()
+    return choice(word_list).strip()
+
+
+def get_player_input(guessed_letters):
+    """
+    Select word to Guess
+    """
+    while True:
+        player
+
