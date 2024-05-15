@@ -11,11 +11,12 @@ def select_word():
         word_list = words.readlines()
     return choice(word_list).strip()
 
-
 def get_player_input(guessed_letters):
     """
-    Select word to Guess
+    Get the Validate the players input
     """
     while True:
-        player
+        player_input("Guess a letter").lower()
+        if _validate_input(player_input, guessed_letters):
+            return player_input
 
