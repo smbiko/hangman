@@ -36,3 +36,14 @@ def join_guessed_letters(guessed_letters):
     """
     return " ".join(sorted(guessed_letters))
 
+def build_guessed_word(target_word, guessed_letters):
+    """
+    Build the word to show player
+    """
+    current_letters= []
+    for letter in target_word:
+        if letter in guessed_letters:
+            current_letters.append(letter)
+        else:
+            current_letters.append("_")
+    return " ".join(current_letters)
