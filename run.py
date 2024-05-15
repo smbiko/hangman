@@ -30,3 +30,9 @@ def _validate_input(player_input, guessed_letters):
         and player_input not in guessed_letters
     )
 
+def join_guessed_letters(guessed_letters):
+    """
+    Displaying the guessed letters and word
+    """
+    return " ".join(sorted(guessed_letters))
+
