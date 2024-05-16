@@ -47,3 +47,103 @@ def build_guessed_word(target_word, guessed_letters):
         else:
             current_letters.append("_")
     return " ".join(current_letters)
+
+def draw_hanged_man(wrong_guesses):
+    """
+    Draw the hangman
+    """
+    hanged_man = [
+        r"""
+  -----
+  |   |
+      |
+      |
+      |
+      |
+      |
+      |
+      |
+      |
+-------
+""",
+        r"""
+  -----
+  |   |
+  O   |
+      |
+      |
+      |
+      |
+      |
+      |
+      |
+-------
+""",
+        r"""
+  -----
+  |   |
+  O   |
+ ---  |
+  |   |
+  |   |
+      |
+      |
+      |
+      |
+-------
+""",
+        r"""
+  -----
+  |   |
+  O   |
+ ---  |
+/ |   |
+  |   |
+      |
+      |
+      |
+      |
+-------
+""",
+        r"""
+  -----
+  |   |
+  O   |
+ ---  |
+/ | \ |
+  |   |
+      |
+      |
+      |
+      |
+-------
+""",
+        r"""
+  -----
+  |   |
+  O   |
+ ---  |
+/ | \ |
+  |   |
+ ---  |
+/     |
+|     |
+      |
+-------
+""",
+        r"""
+  -----
+  |   |
+  O   |
+ ---  |
+/ | \ |
+  |   |
+ ---  |
+/   \ |
+|   | |
+      |
+-------
+""",
+    ]
+
+    print(hanged_man[wrong_guesses])
