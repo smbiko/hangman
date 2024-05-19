@@ -172,7 +172,7 @@ if __name__ == "__main__":
     """
     Game Loop
     """
-while not game_over(wrong_guesses, target_word, guessed_letters):
+    while not game_over(wrong_guesses, target_word, guessed_letters):
         draw_hanged_man(wrong_guesses)
         print(f"Your word is: {guessed_word}")
         print(
@@ -185,6 +185,24 @@ while not game_over(wrong_guesses, target_word, guessed_letters):
         else:
             print("Sorry, it's not there.")
             wrong_guesses += 1
+
+        guessed_letters.add(player_guess)
+        guessed_word = build_guessed_word(target_word, guessed_letters)
+
+    
+    """
+    Game Over
+    """
+
+    draw_hanged_man(wrong_guesses)
+    if wrong_guesses == MAX_INCORRECT_GUESSES:
+        print("Sorry, you lost!")
+    else:
+        print("Congrats! You did it!")
+    print(f"Your word was: {target_word}")
+
+
+
 
 
 
