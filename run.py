@@ -11,6 +11,12 @@ def select_word():
         word_list = words.readlines()
     return choice(word_list).strip()
 
+def player_input(prompt):
+    """
+    Wrapper for the built-in input function to capture user input
+    """
+    return input(prompt)
+
 def get_player_input(guessed_letters):
     """
     Get the Validate the players input
