@@ -169,5 +169,23 @@ if __name__ == "__main__":
     print("Welcome to Hangman!")
 
 
+    """
+    Game Loop
+    """
+while not game_over(wrong_guesses, target_word, guessed_letters):
+        draw_hanged_man(wrong_guesses)
+        print(f"Your word is: {guessed_word}")
+        print(
+            "Current guessed letters: "
+            f"{join_guessed_letters(guessed_letters)}\n"
+        )
+        player_guess = get_player_input(guessed_letters)
+        if player_guess in target_word:
+            print("Great guess!")
+        else:
+            print("Sorry, it's not there.")
+            wrong_guesses += 1
+
+
 
 
