@@ -158,6 +158,16 @@ def game_over(wrong_guesses, target_word, guessed_letters):
         return True
     return False
 
+if __name__ == "__main__":
+    """
+    Initial setup
+    """
+    target_word = select_word()
+    guessed_letters = set()
+    guessed_word = build_guessed_word(target_word, guessed_letters)
+    wrong_guesses = 0
+    print("Welcome to Hangman!")
+
 
 
 
