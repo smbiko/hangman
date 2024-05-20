@@ -1,7 +1,6 @@
 import string
 from random import choice
 import pyfiglet
-from hangman import hangman_as
 from words import word_list
 from tabulate import tabulate
 from colorama import Fore, init, Style
