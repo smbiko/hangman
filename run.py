@@ -1,7 +1,39 @@
 import string
 from random import choice
+import pyfiglet
+from hangman import hangman_as
+from words import word_list
+from tabulate import tabulate
+from colorama import Fore, init, Style
 
 MAX_INCORRECT_GUESSES = 6
+
+def welcome_screen():
+    """
+    Function to welcome screen will provide users with rules and input for his game.
+    """
+    welcome_text = pyfiglet.figlet_format("**Skeletan Hangman**")
+    print(welcome_text)
+    global name
+    while True:
+        print("\n")
+        name = (
+            input(
+                Fore.LIGHTRED
+                + Style.BRIGHT
+                + ("Please enter your name:\n".center(width))
+        )
+            .strip()
+            .capitalize()
+        )
+        print("\n")
+        if not name.isalpha():
+            print(Fore.RED + "Name must be alphabets only!!!\n".center(width))
+        else:
+            clear()
+            break
+    return name
+
 
 def select_word():
     """
@@ -25,6 +57,8 @@ def get_player_input(guessed_letters):
         player_input("Guess a letter").lower()
         if _validate_input(player_input, guessed_letters):
             return player_input
+        else:
+            print("Invalid input. Please try again.")
 
 def _validate_input(player_input, guessed_letters):
     """
