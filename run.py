@@ -1,8 +1,9 @@
 import string
 from random import choice
 import pyfiglet
-from tabulate import tabulate
 from colorama import Fore, init, Style
+init(autoreset=True)
+
 
 MAX_INCORRECT_GUESSES = 6
 
@@ -49,7 +50,7 @@ def player_input(prompt):
 
 def get_player_input(guessed_letters):
     """
-    Get the Validate the players input
+    Get to Validate the players input
     """
     while True:
         player_input("Guess a letter").lower()
