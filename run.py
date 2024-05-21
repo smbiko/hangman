@@ -1,4 +1,5 @@
 import string
+import os
 from random import choice
 import pyfiglet
 from colorama import Fore, init, Style
@@ -33,6 +34,42 @@ def welcome_screen():
             break
     return name
 
+def rules():
+    """
+    This function will display rules to the user
+    """
+    clear()
+    welcome_text = pyfiglet.figlet_format("**Hangman**")
+    print(welcome_text)
+    print("\n")
+    print(Fore.LIGHTWHITE_EX + "Rules of this game are fairly"
+                               " simple!!!\n".center(width))
+    print("1.You are guessing letters one by one that makes"
+          " hidden word".center(width))
+    print("2.Each wrong guess you are losing a"
+          "  life and 1 point is deducted from score".center(width))
+    print("3.Each right guess you are getting closer"
+          " to the win and 1 point is add to the score".center(width))
+    print("4. How many lives you have ".center(
+        width))
+    print("5. You win by guessing all the letters in the"
+          " word and getting extra 10 points".center(width))
+   
+    while True:
+        try:
+            pas_b = input(
+                Fore.LIGHTWHITE_EX + ("Type P to"
+                                      " play the game:\n".center(width))
+            ).upper()
+            if pas_b == "P":
+                levels()
+                break
+            else:
+                clear()
+                raise ValueError(Fore.RED + ("Please type letter P!!!"))
+        except ValueError as e_rr:
+            print(f"Invalid input:{e_rr}")
+
 
 def select_word():
     """
@@ -48,16 +85,18 @@ def player_input(prompt):
     """
     return input(prompt)
 
+
+
 def get_player_input(guessed_letters):
     """
     Get to Validate the players input
     """
-    while True:
-        player_input("Guess a letter").lower()
-        if _validate_input(player_input, guessed_letters):
-            return player_input
-        else:
-            print("Invalid input. Please try again.")
+    player_input = input("Enter a letter: ").strip().lower() 
+    if _validate_input(player_input, guessed_letters):
+        return player_input
+    else:
+        print("Invalid input. Please enter a single letter that hasn't been guessed yet.")
+        return get_player_input(guessed_letters)
 
 def _validate_input(player_input, guessed_letters):
     """

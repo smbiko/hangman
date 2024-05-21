@@ -24,3 +24,11 @@ The Hangman Game project is a classic word-guessing game implemented in Python. 
     * [Deployment](#deployment)
     * [Credits](#credits)
 
+## User experience
+
+### Project Goals
+
+- The goal is to offer an engaging game experience that maximizes user interaction. 
+
+### User Stories
+
