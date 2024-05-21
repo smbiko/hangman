@@ -34,12 +34,18 @@ def welcome_screen():
             break
     return name
 
+def clear():
+    """
+    Function to clear terminal through the game.
+    """
+    os.system("cls" if os.name == "nt" else "clear")
+
 def rules():
     """
     This function will display rules to the user
     """
     clear()
-    welcome_text = pyfiglet.figlet_format("**Hangman**")
+    welcome_text = pyfiglet.figlet_format("** Hangman **")
     print(welcome_text)
     print("\n")
     print(Fore.LIGHTWHITE_EX + "Rules of this game are fairly"
