@@ -46,7 +46,7 @@ def rules():
     This function will display rules to the user
     """
     clear()
-    welcome_text = pyfiglet.figlet_format("** Hangman **")
+    welcome_text = pyfiglet.figlet_format("** Skeletan Hangman **")
     print(welcome_text)
     print("\n")
     print(Fore.LIGHTWHITE_EX + "Rules of this game are fairly"
@@ -57,8 +57,7 @@ def rules():
           "  life and 1 point is deducted from score".center(width))
     print("3.Each right guess you are getting closer"
           " to the win and 1 point is add to the score".center(width))
-    print("4. How many lives you have ".center(
-        width))
+    print("4. How many TRIES you have ".center(width))
     print("5. You win by guessing all the letters in the"
           " word and getting extra 10 points".center(width))
    
@@ -311,10 +310,11 @@ if __name__ == "__main__":
 
     draw_hanged_man(wrong_guesses)
     if wrong_guesses == MAX_INCORRECT_GUESSES:
-        print("Sorry, you lost!")
+        print(Fore.RED + (f"Sorry {name} you lost!!!").center(width))
     else:
-        print("Congrats! You did it!")
-    print(f"Your word was: {target_word}")
+        print(Fore.BLUE
+            + Style.BRIGHT + (f"Congrats {name}! You did it!").center(width))
+        print(f"Your word was: {Fore.YELLOW} {target_word}".center)
 
 
 
