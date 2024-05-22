@@ -4,9 +4,10 @@ from random import choice
 import pyfiglet
 from colorama import Fore, init, Style
 init(autoreset=True)
+width = os.get_terminal_size().columns
 
 
-MAX_INCORRECT_GUESSES = 6
+MAX_INCORRECT_GUESSES = 7
 
 def welcome_screen():
     """
@@ -19,7 +20,7 @@ def welcome_screen():
         print("\n")
         name = (
             input(
-                Fore.LIGHTRED
+                Fore.LIGHTRED_EX
                 + Style.BRIGHT
                 + ("Please enter your name:\n".center(width))
         )
@@ -68,7 +69,6 @@ def rules():
                                       " play the game:\n".center(width))
             ).upper()
             if pas_b == "P":
-                levels()
                 break
             else:
                 clear()
@@ -275,11 +275,13 @@ if __name__ == "__main__":
     """
     Initial setup
     """
+    welcome_screen()
+    rules()
     target_word = select_word()
     guessed_letters = set()
     guessed_word = build_guessed_word(target_word, guessed_letters)
     wrong_guesses = 0
-    print("Welcome to Hangman!")
+   
 
 
     """
