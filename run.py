@@ -29,7 +29,7 @@ def welcome_screen():
         )
         print("\n")
         if not name.isalpha():
-            print(Fore.RED + "Name must be alphabets only!!!\n".center(width))
+            print(Fore.MAGENTA + "Name must be alphabets only!!!\n".center(width))
         else:
             clear()
             break
@@ -295,9 +295,9 @@ if __name__ == "__main__":
         )
         player_guess = get_player_input(guessed_letters)
         if player_guess in target_word:
-            print("Great guess!")
+            print(Fore.GREEN + (f"Great guess!"))
         else:
-            print("Sorry, it's not there.")
+            print(Fore.RED + (f"Sorry, it's not there."))
             wrong_guesses += 1
 
         guessed_letters.add(player_guess)
@@ -312,12 +312,30 @@ if __name__ == "__main__":
     if wrong_guesses == MAX_INCORRECT_GUESSES:
         print(Fore.RED + (f"Sorry {name} you lost!!!").center(width))
     else:
-        print(Fore.BLUE
+        print(Fore.GREEN
             + Style.BRIGHT + (f"Congrats {name}! You did it!").center(width))
         print(f"Your word was: {Fore.YELLOW} {target_word}".center)
 
-
-
+def end_game():
+    """
+    Function that will ask user if he wants to play again.
+    """
+    while True:
+        print(f"{Fore.GREEN + Style.BRIGHT}{name} you can play again or exit game.\n".center(width))
+        again = input("Press (Y)es, (N)o:\n".center(width))
+        try:
+            if again == "Y":
+                clear()
+                break
+            elif again == "N":
+                clear()
+                thank_you()
+                break
+            else:
+                clear()
+                raise ValueError("\n You must type Y,N!!!".center(width))
+        except ValueError as e_rr:
+            print(Fore.RED + (f"Try again:{e_rr}"))
 
 
 
