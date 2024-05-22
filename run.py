@@ -337,6 +337,12 @@ def end_game():
         except ValueError as e_rr:
             print(Fore.RED + (f"Try again:{e_rr}"))
 
-
+def thank_you():
+    """
+    This function will just print text for user
+    when he decided to stop playing game
+    """
+    thank_text = pyfiglet.figlet_format(f"Thank you for playing game {name}!")
+    print(thank_text)
 
 
