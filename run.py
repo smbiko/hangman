@@ -311,6 +311,8 @@ if __name__ == "__main__":
     draw_hanged_man(wrong_guesses)
     if wrong_guesses == MAX_INCORRECT_GUESSES:
         print(Fore.RED + (f"Sorry {name} you lost!!!").center(width))
+        print(f"The word we were looking for was:{Fore.YELLOW} {target_word}".center(
+            width))
     else:
         print(Fore.GREEN
             + Style.BRIGHT + (f"Congrats {name}! You did it!").center(width))
@@ -326,6 +328,7 @@ def end_game():
         try:
             if again == "Y":
                 clear()
+                get_player_input(guessed_letters)
                 break
             elif again == "N":
                 clear()
