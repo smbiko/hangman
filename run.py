@@ -84,11 +84,11 @@ def select_word():
         word_list = words.readlines()
     return choice(word_list).strip()
 
-def player_input(prompt):
+def player_input():
     """
     Wrapper for the built-in input function to capture user input
     """
-    return input(prompt)
+    return input()
 
 
 
@@ -118,7 +118,6 @@ def join_guessed_letters(guessed_letters):
     """
     Displaying the guessed letters and word
     """
-    clear()
     return " ".join(sorted(guessed_letters))
 
 def build_guessed_word(target_word, guessed_letters):
@@ -272,6 +271,37 @@ def game_over(wrong_guesses, target_word, guessed_letters):
         return True
     return False
 
+def end_game():
+    """
+    Function that will ask user if he wants to play again.
+    """
+    while True:
+        print(f"{Fore.GREEN + Style.BRIGHT}{name} you can play again or exit game.\n".center(width))
+        again = input("Press (Y)es, (N)o:\n".center(width))
+        try:
+            if again == "Y":
+                clear()
+                rules()
+                break
+            elif again == "N":
+                clear()
+                thank_you()
+                break
+            else:
+                clear()
+                raise ValueError("\n You must type Y,N!!!".center(width))
+        except ValueError as e_rr:
+            print(Fore.RED + (f"Try again:{e_rr}"))
+
+def thank_you():
+    """
+    This function will just print text for user
+    when he decided to stop playing game
+    """
+    thank_text = pyfiglet.figlet_format(f"Thank you for playing game {name}!")
+    print(thank_text)
+
+
 if __name__ == "__main__":
     """
     Initial setup
@@ -327,34 +357,7 @@ if __name__ == "__main__":
         print(f"Your word was: {Fore.YELLOW} {target_word}".center)
         end_game()
 
-def end_game():
-    """
-    Function that will ask user if he wants to play again.
-    """
-    while True:
-        print(f"{Fore.GREEN + Style.BRIGHT}{name} you can play again or exit game.\n".center(width))
-        again = input("Press (Y)es, (N)o:\n".center(width))
-        try:
-            if again == "Y":
-                clear()
-                get_player_input(guessed_letters)
-                break
-            elif again == "N":
-                clear()
-                thank_you()
-                break
-            else:
-                clear()
-                raise ValueError("\n You must type Y,N!!!".center(width))
-        except ValueError as e_rr:
-            print(Fore.RED + (f"Try again:{e_rr}"))
 
-def thank_you():
-    """
-    This function will just print text for user
-    when he decided to stop playing game
-    """
-    thank_text = pyfiglet.figlet_format(f"Thank you for playing game {name}!")
-    print(thank_text)
+
 
 
