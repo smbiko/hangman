@@ -59,7 +59,7 @@ def rules():
           " to the win ".center(width))
     print("4. How many TRIES you have ".center(width))
     print("5. You win by guessing all the letters in the"
-          " word and getting extra 10 points".center(width))
+          " word ".center(width))
    
     while True:
         try:
@@ -108,6 +108,7 @@ def _validate_input(player_input, guessed_letters):
     """
     Input validation loop 
     """
+    clear()
     return (
         len(player_input) == 1
         and player_input in string.ascii_lowercase
@@ -281,7 +282,7 @@ def end_game():
         try:
             if again == "Y":
                 clear()
-                rules()
+                game()
                 break
             elif again == "N":
                 clear()
@@ -302,23 +303,16 @@ def thank_you():
     print(thank_text)
 
 
-if __name__ == "__main__":
+def game():
     """
-    Initial setup
+    Main game function that runs the game loop.
     """
-    welcome_screen()
     rules()
     target_word = select_word()
     guessed_letters = set()
     guessed_word = build_guessed_word(target_word, guessed_letters)
     wrong_guesses = 0
-   
 
-
-    """
-    Game Loop
-    """
-    
     while not game_over(wrong_guesses, target_word, guessed_letters):
         draw_hanged_man(wrong_guesses)
         print(f"Your word is: {guessed_word}")
@@ -335,27 +329,36 @@ if __name__ == "__main__":
 
         guessed_letters.add(player_guess)
         guessed_word = build_guessed_word(target_word, guessed_letters)
-    
-
-    
-    """
-    Game Over
-    """
 
     draw_hanged_man(wrong_guesses)
     if wrong_guesses == MAX_INCORRECT_GUESSES:
         clear()
-        print(Fore.RED + (f"Sorry {name} you lost!!!").center(width))
-        print(f"The word we were looking for was:{Fore.YELLOW} {target_word}".center(
-            width))
+        print(Fore.RED + (f"Sorry {name}, you lost!!!").center(width))
+        print(f"The word we were looking for was: {Fore.YELLOW} {target_word}".center(width))
         end_game()
-            
     else:
         clear()
-        print(Fore.GREEN
-            + Style.BRIGHT + (f"Congrats {name}! You did it!").center(width))
-        print(f"Your word was: {Fore.YELLOW} {target_word}".center)
+        print(Fore.GREEN + Style.BRIGHT + (f"Congrats {name}! You did it!").center(width))
+        print(f"Your word was: {Fore.YELLOW} {target_word}".center(width))
         end_game()
+
+
+if __name__ == "__main__":
+    """
+    Initial setup
+    """
+    welcome_screen()
+    rules()
+    game()
+    target_word = select_word()
+    guessed_letters = set()
+    guessed_word = build_guessed_word(target_word, guessed_letters)
+    wrong_guesses = 0
+   
+
+
+   
+    
 
 
 
