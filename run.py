@@ -96,6 +96,7 @@ def get_player_input(guessed_letters):
     """
     Get to Validate the players input
     """
+    
     player_input = input("Enter a letter: ").strip().lower() 
     if _validate_input(player_input, guessed_letters):
         return player_input
@@ -117,6 +118,7 @@ def join_guessed_letters(guessed_letters):
     """
     Displaying the guessed letters and word
     """
+    clear()
     return " ".join(sorted(guessed_letters))
 
 def build_guessed_word(target_word, guessed_letters):
@@ -286,6 +288,7 @@ if __name__ == "__main__":
     """
     Game Loop
     """
+    clear()
     while not game_over(wrong_guesses, target_word, guessed_letters):
         draw_hanged_man(wrong_guesses)
         print(f"Your word is: {guessed_word}")
@@ -302,6 +305,7 @@ if __name__ == "__main__":
 
         guessed_letters.add(player_guess)
         guessed_word = build_guessed_word(target_word, guessed_letters)
+    
 
     
     """
@@ -310,13 +314,18 @@ if __name__ == "__main__":
 
     draw_hanged_man(wrong_guesses)
     if wrong_guesses == MAX_INCORRECT_GUESSES:
+        clear()
         print(Fore.RED + (f"Sorry {name} you lost!!!").center(width))
         print(f"The word we were looking for was:{Fore.YELLOW} {target_word}".center(
             width))
+        end_game()
+            
     else:
+        clear()
         print(Fore.GREEN
             + Style.BRIGHT + (f"Congrats {name}! You did it!").center(width))
         print(f"Your word was: {Fore.YELLOW} {target_word}".center)
+        end_game()
 
 def end_game():
     """
