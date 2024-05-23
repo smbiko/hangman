@@ -41,6 +41,14 @@ def clear():
     """
     os.system("cls" if os.name == "nt" else "clear")
 
+def select_word():
+    """
+    Get words to use in the wordlist 
+    """
+    with open("words.txt", mode="r") as words:
+        word_list = words.readlines()
+    return choice(word_list).strip()
+
 def rules():
     """
     This function will display rules to the user
@@ -54,10 +62,10 @@ def rules():
     print("1.You are guessing letters one by one that makes"
           " hidden word".center(width))
     print("2.Each wrong guess you are losing a"
-          "  life and 1 point is deducted from score".center(width))
+          "  TRY ".center(width))
     print("3.Each right guess you are getting closer"
           " to the win ".center(width))
-    print("4. How many TRIES you have ".center(width))
+    print("4. You only have 7 tries incorrect guess ".center(width))
     print("5. You win by guessing all the letters in the"
           " word ".center(width))
    
@@ -74,15 +82,10 @@ def rules():
                 raise ValueError(Fore.RED + ("Please type letter P!!!"))
         except ValueError as e_rr:
             print(f"Invalid input:{e_rr}")
+    clear()
 
 
-def select_word():
-    """
-    Get words to use in the wordlist 
-    """
-    with open("words.txt", mode="r") as words:
-        word_list = words.readlines()
-    return choice(word_list).strip()
+
 
 def player_input():
     """
@@ -348,7 +351,6 @@ if __name__ == "__main__":
     Initial setup
     """
     welcome_screen()
-    rules()
     game()
     target_word = select_word()
     guessed_letters = set()
