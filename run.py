@@ -56,7 +56,7 @@ def rules():
     print("2.Each wrong guess you are losing a"
           "  life and 1 point is deducted from score".center(width))
     print("3.Each right guess you are getting closer"
-          " to the win and 1 point is add to the score".center(width))
+          " to the win ".center(width))
     print("4. How many TRIES you have ".center(width))
     print("5. You win by guessing all the letters in the"
           " word and getting extra 10 points".center(width))
@@ -288,7 +288,7 @@ if __name__ == "__main__":
     """
     Game Loop
     """
-    clear()
+    
     while not game_over(wrong_guesses, target_word, guessed_letters):
         draw_hanged_man(wrong_guesses)
         print(f"Your word is: {guessed_word}")
