@@ -165,12 +165,12 @@ The planning of this project was based on the flow charts using the platform Luc
 
 
  ### Bugs
-| **Bug**                                                                                                         | **Fix**                                                                                                                                                       |
+| **Bug**                                                                                                         | **Fix**                                                                                                                   |
 
-| Poor visual presentation of the game   | Introduced colorama and add spacing to the print statements across the game       |                                                                                            |
-| After finishing the game once user was only able to choose a to play again after opting YES play again         | reworked the game() to be able to be called and game being able to be replayed
+| Poor visual presentation of the game  | Introduced colorama and add spacing to the print statements across the game|
+| After finishing the game once user was only able to choose a to play again after opting YES play again | reworked the game() to be able to be called and game being able to be replayed
 | Print statements from different screens were pilling up on top of each other, with user inputs and progress of the game | Imported os and created function which was used across the game to clear the terminal screen                                 |
-| Too long lines during code                   | Fixed code using Chatgpt guided me what error was                             |
+| Too long lines during code          | Fixed code using Chatgpt guided me what error was           |
 
                                                                                                          
  ### Manual Testing
@@ -197,7 +197,7 @@ The planning of this project was based on the flow charts using the platform Luc
  #### Game screen
 
 <details><summary>Screenshots</summary>
-<img src="assets/readme_img/game_invalid_character.png">
+<img src="assets/readme_img/game_repeat.png">
 </details>
 <details><summary>Screenshots</summary>
 <img src="assets/readme_img/word_repeat.png">
@@ -252,7 +252,7 @@ content from creds.json file
 
 ## Credits
 - Code & Content
-  - I give credit to [Stack overflow](https://www.stackoverflow.com/), [MDN Web Docs](https://developer.mozilla.org/en-US/) & [W3 Schools](https://www.w3schools.com/) for helping me resolve issues with Python while coding through
+  - I give credit to [Stack overflow](https://www.stackoverflow.com/) and [MDN Web Docs](https://developer.mozilla.org/en-US/) for helping me resolve issues with Python while coding through
   - Inspiration and guidance/problem solving through project came from [kite](https://www.youtube.com/@KiteHQ),youtube channels
   - Credits for code os.system('cls' if os.name == 'nt' else 'clear') that clear screen was found on [stackoverflow](https://stackoverflow.com/questions/2084508/clear-terminal-in-python)
   - Credits for my hangman art go to  [Ascii](https://ascii.co.uk/art/hangman)
